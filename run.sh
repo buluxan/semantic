@@ -1,5 +1,5 @@
 #!/bin/bash
-export GITHUB_TOKEN=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
+export GITHUB_TOKEN=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
 
 npm install -g semantic-release               \
     @semantic-release/changelog               \
