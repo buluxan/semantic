@@ -21,7 +21,7 @@ jobs:
       
     - name: Build Step 
       env: 
-        CI: "" 
+        CI: true 
       run: npm run build
 
     - name: Run Semantic Release
