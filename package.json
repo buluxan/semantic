@@ -1,38 +1,14 @@
 {
-    "branch": "master",
-    "plugins": [
-        "@semantic-release/commit-analyzer",
-        "@semantic-release/release-notes-generator",
-        [
-            "@semantic-release/changelog",
-            {
-                "changelogFile": "CHANGELOG.md",
-                "changelogTitle": "# Semantic Versioning Changelog"
-            }
-        ],
-        [
-            "@semantic-release/exec",
-            {
-                "prepareCmd": "./prepare-release.sh ${nextRelease.version}"
-            }
-        ],
-        [
-            "@semantic-release/git",
-            {
-                "assets": [
-                    "CHANGELOG.md"
-                ]
-            }
-        ],
-        [
-            "@semantic-release/github",
-            {
-                "assets": [
-                    {
-                        "path": "dist/**"
-                    }
-                ]
-            }
-        ]
+  "branches": ["master"],
+  "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      "@semantic-release/git",
+      "@semantic-release/changelog",
+      ["@semantic-release/exec", {
+            "prepareCmd" : "echo '${nextRelease.version} run your custom shell script'",
+            "publishCmd" : "echo 'Published.......run your custom shell script'"
+            }]
     ]
 }
