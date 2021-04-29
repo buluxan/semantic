@@ -1,21 +1,23 @@
-name: Release
+name: Release npm package
 
-on: [ push ]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   release:
-    needs: build
-    name: Semantic Release
+    name: Release
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
     steps:
-      # check out repository code and setup node
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@master
       - uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-      # install dependencies and run semantic-release
-      - run: npm i -g semantic-release @semantic-release/{git,exec,changelog}
-      - run: semantic-release
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
+      - run: npx semantic-release
         env:
-          GITHUB_TOKEN: GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
