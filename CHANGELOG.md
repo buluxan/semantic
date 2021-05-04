@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+# [1.1.0](https://github.com/buluxan/semantic/compare/v1.0.0...v1.1.0) (2021-05-04)
+
+
+### Features
+
+* new feature lukman.php ([7b8a1d2](https://github.com/buluxan/semantic/commit/7b8a1d256377ff21e998fb7a7fa1da973eb3f944))
+
 # 1.0.0 (2021-04-29)
 
 
